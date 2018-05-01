@@ -16,13 +16,15 @@ protocol PHLightControlViewControllerSegueCoordinator : SegueCoordinator {
     func lightControlViewControllerNeedsPushLinkScreen(_ controller:PHLightControlViewController, withCompletionBlock completion:@escaping PushLinkPresentingCompletionBlock)
 }
 
-class PHLightControlViewController: UIViewController, NavigationHelping {
+class PHLightControlViewController: UIViewController, NavigationHelping, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var ipAddressLabel:UILabel?
     @IBOutlet weak var uniqueIdLabel:UILabel?
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var segueCoordinator: PHLightControlViewControllerSegueCoordinator = HueQuickStartAppSegueCoordinator()
     var selectedBridge:PHBridgeInfo?
     var isStartingUp:Bool = true
+    var lights:[PHSLightPoint] = []
     
     var activityIndicator:ActivityDisplaying? {
         get {
@@ -62,6 +64,11 @@ class PHLightControlViewController: UIViewController, NavigationHelping {
             self.discoverBridges()
         }
         
+       
+        
+        lights =  (self.bridgeController?.bridge.bridgeState.getDevicesOf(.light) as? [PHSLightPoint])!
+        self.tableView.delegate = self
+        self.tableView.reloadData()
         self.isStartingUp = false
     }
     
@@ -91,6 +98,22 @@ class PHLightControlViewController: UIViewController, NavigationHelping {
     
     func showBridgeDiscoveryResults(results:[PHBridgeInfo]) {
         self.segueCoordinator.lightControlViewController(self, didGetBridgeDiscoveryResults: results)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lights.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "lightCell", for: indexPath as IndexPath) as! LightTableViewCell
+        
+       cell.setUI(lightPoint: lights[indexPath.row])
+        
+        return cell
     }
 }
 
