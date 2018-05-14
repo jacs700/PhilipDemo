@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		081FCC0D2097F52E00E50FEB /* LightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081FCC0C2097F52E00E50FEB /* LightTableViewCell.swift */; };
 		081FCC1120980B2000E50FEB /* LightDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081FCC1020980B2000E50FEB /* LightDetailsViewController.swift */; };
+		0826970420A908F700E92A91 /* SwiftHUEColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0826970320A908F700E92A91 /* SwiftHUEColorPicker.swift */; };
 		8B2D16EC1F1F584C0012283C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B2D16EB1F1F584C0012283C /* Default-568h@2x.png */; };
 		8B566B791F1F9263000FA1E3 /* HueSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BAD13B71F0E342600E75FE6 /* HueSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B566B7D1F1FD2DD000FA1E3 /* PHSKnownBridges+LastConnectedBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B566B7C1F1FD2DD000FA1E3 /* PHSKnownBridges+LastConnectedBridge.m */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		081FCC0C2097F52E00E50FEB /* LightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTableViewCell.swift; sourceTree = "<group>"; };
 		081FCC1020980B2000E50FEB /* LightDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightDetailsViewController.swift; sourceTree = "<group>"; };
+		0826970320A908F700E92A91 /* SwiftHUEColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHUEColorPicker.swift; path = "../../../../../Downloads/SwiftHUEColorPicker-master/SwiftHUEColorPicker/Sources/SwiftHUEColorPicker.swift"; sourceTree = "<group>"; };
 		8B2D16EB1F1F584C0012283C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8B566B7B1F1FD2DD000FA1E3 /* PHSKnownBridges+LastConnectedBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PHSKnownBridges+LastConnectedBridge.h"; path = "SDK/PHSKnownBridges+LastConnectedBridge.h"; sourceTree = "<group>"; };
 		8B566B7C1F1FD2DD000FA1E3 /* PHSKnownBridges+LastConnectedBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PHSKnownBridges+LastConnectedBridge.m"; path = "SDK/PHSKnownBridges+LastConnectedBridge.m"; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				A91B5E7B1F422A950004AD77 /* HueQuickStartAppSwift-Bridging-Header.h */,
 				081FCC0C2097F52E00E50FEB /* LightTableViewCell.swift */,
 				081FCC1020980B2000E50FEB /* LightDetailsViewController.swift */,
+				0826970320A908F700E92A91 /* SwiftHUEColorPicker.swift */,
 			);
 			path = HueQuickStartAppSwift;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0826970420A908F700E92A91 /* SwiftHUEColorPicker.swift in Sources */,
 				A9A1A3D31F589EBE00B6AB16 /* PHSKnownBridgeAdditions.swift in Sources */,
 				A9831B991F4E1774000913E4 /* ActivityDisplaying.swift in Sources */,
 				A92A555E1F576312006A17F2 /* PHLightControlViewController.swift in Sources */,

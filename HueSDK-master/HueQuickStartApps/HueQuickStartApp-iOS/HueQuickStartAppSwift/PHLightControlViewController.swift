@@ -25,6 +25,7 @@ class PHLightControlViewController: UIViewController, NavigationHelping, UITable
     var selectedBridge:PHBridgeInfo?
     var isStartingUp:Bool = true
     var lights:[PHSLightPoint] = []
+    var selectedLight: PHSLightPoint? = nil
     
     var activityIndicator:ActivityDisplaying? {
         get {
@@ -115,12 +116,25 @@ class PHLightControlViewController: UIViewController, NavigationHelping, UITable
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedLight = lights[indexPath.row]
+        performSegue(withIdentifier: "lightDetails", sender: self)
+    }
+    
 }
 
 private typealias PHLightControlViewControllerSegueHandling = PHLightControlViewController
 extension PHLightControlViewControllerSegueHandling {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.segueCoordinator.coordinate(segue:segue, sender:sender)
+        if (segue.identifier == "lightDetails") {
+            // initialize new view controller and cast it as your view controller
+            let viewController = segue.destination as! LightDetailsViewController
+            // your new view controller should have property that will store passed value
+            viewController.lightPoint = selectedLight!
+        } else {
+            self.segueCoordinator.coordinate(segue:segue, sender:sender)
+        }
     }
     
     @IBAction func unwindToCancelPushLink(segue:UIStoryboardSegue) {
